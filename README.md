@@ -7,8 +7,10 @@ This is a [Scoop](https://scoop.sh) bucket for the **2b** (Second Brain) CLI app
 Add this bucket to Scoop:
 
 ```powershell
-scoop bucket add 2b https://github.com/DavidLabett/scoop-2b
+scoop bucket add 2b https://github.com/DavidLabett/scoop-2b.git
 ```
+
+**Note:** The `.git` extension is required for Scoop to recognize the URL.
 
 Then install the application:
 
