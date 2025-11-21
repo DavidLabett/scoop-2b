@@ -30,6 +30,75 @@ SecondBrain.exe version
 2b version
 ```
 
+## Setting Up the `2b` Alias
+
+By default, the application is installed as `SecondBrain.exe`. To use the shorter `2b` command, you can set up an alias using one of the following methods:
+
+### Method 1: Using Scoop's Alias Feature (Recommended)
+
+Scoop provides a built-in alias system:
+
+```powershell
+# Add the alias
+scoop alias add 2b "SecondBrain.exe $args"
+
+# Verify it was added
+scoop alias list
+
+# Test it
+2b version
+```
+
+### Method 2: PowerShell Profile (Persistent Across Sessions)
+
+Add the alias to your PowerShell profile for a permanent solution:
+
+1. **Open your PowerShell profile:**
+   ```powershell
+   notepad $PROFILE
+   ```
+   
+   If the file doesn't exist, create it:
+   ```powershell
+   New-Item -Path $PROFILE -Type File -Force
+   notepad $PROFILE
+   ```
+
+2. **Add this function to your profile:**
+   ```powershell
+   # 2ND BRAIN CLI Alias (Scoop-installed)
+   function 2b {
+       & SecondBrain.exe $args
+   }
+   ```
+
+3. **Save and reload your profile:**
+   ```powershell
+   . $PROFILE
+   ```
+
+4. **Test the alias:**
+   ```powershell
+   2b version
+   ```
+
+### Method 3: Command Prompt Alias (CMD)
+
+For Command Prompt users, you can create a batch file or use DOSKEY:
+
+1. **Create a batch file** `2b.bat` in a directory in your PATH:
+   ```batch
+   @echo off
+   SecondBrain.exe %*
+   ```
+
+2. **Or use DOSKEY** (temporary, session-only):
+   ```cmd
+   doskey 2b=SecondBrain.exe $*
+   ```
+
+**Note:** Method 2 (PowerShell Profile) is recommended as it works across all PowerShell sessions and automatically uses the correct Scoop-installed version when you update.
+
 ## Update
 
 To update to the latest version:
