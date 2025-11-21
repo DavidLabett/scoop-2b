@@ -97,7 +97,41 @@ For Command Prompt users, you can create a batch file or use DOSKEY:
    doskey 2b=SecondBrain.exe $*
    ```
 
-**Note:** Method 2 (PowerShell Profile) is recommended as it works across all PowerShell sessions and automatically uses the correct Scoop-installed version when you update.
+### Method 4: Bash Alias (Linux/WSL/Git Bash)
+
+For bash users (Linux, WSL, or Git Bash on Windows):
+
+1. **Open your bash configuration file:**
+   ```bash
+   # For most Linux distributions and WSL
+   nano ~/.bashrc
+   
+   # Or for macOS/older systems
+   nano ~/.bash_profile
+   ```
+
+2. **Add this alias to the file:**
+   ```bash
+   # 2ND BRAIN CLI Alias (Scoop-installed)
+   alias 2b='SecondBrain.exe'
+   ```
+
+3. **Save and reload your configuration:**
+   ```bash
+   # Reload the configuration
+   source ~/.bashrc
+   # or
+   source ~/.bash_profile
+   ```
+
+4. **Test the alias:**
+   ```bash
+   2b version
+   ```
+
+**Note for WSL/Git Bash:** Since this is a Windows executable, make sure you're running it from a Windows-compatible shell (WSL with Windows interop enabled, or Git Bash on Windows). The `.exe` extension is required.
+
+**Note:** Method 2 (PowerShell Profile) is recommended for Windows PowerShell users as it works across all PowerShell sessions and automatically uses the correct Scoop-installed version when you update.
 
 ## Update
 
